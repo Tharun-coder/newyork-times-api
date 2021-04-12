@@ -22,7 +22,7 @@ async function getData(section) {
     let res = await fetch(`${api_url}${section}.json?api-key=${key}`);
     let data = await res.json();
     data.results.forEach((indata) => {
-      let card = createTag("div", "card col-8");
+      let card = createTag("div", "card col-lg-8 col-sm-12");
       let section_card = createTag("h4", "section-card");
       section_card.innerText = indata.section.toUpperCase();
       let titlecard = createTag("h5", "titlecard");
@@ -36,7 +36,7 @@ async function getData(section) {
       anchor.innerText = "Continue Reading";
       anchor.setAttribute("href", indata.url);
       anchor.setAttribute("target", "_blank");
-      let img = createTag("img", "img-thumbnail col-4");
+      let img = createTag("img", "img-thumbnail col-lg-4 col-sm-12");
       img.src = indata.multimedia[0].url;
       card.append(section_card, titlecard, date, abstract, anchor);
       info.append(card, img);
